@@ -1,0 +1,16 @@
+C:\Users\alel_\source\WEB repos\SIS\Source\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.exe
+C:\Users\alel_\source\WEB repos\SIS\Source\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.deps.json
+C:\Users\alel_\source\WEB repos\SIS\Source\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.runtimeconfig.json
+C:\Users\alel_\source\WEB repos\SIS\Source\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.runtimeconfig.dev.json
+C:\Users\alel_\source\WEB repos\SIS\Source\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.dll
+C:\Users\alel_\source\WEB repos\SIS\Source\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.pdb
+C:\Users\alel_\source\WEB repos\SIS\Source\ConsoleApp1\bin\Debug\netcoreapp3.1\SIS.HTTP.dll
+C:\Users\alel_\source\WEB repos\SIS\Source\ConsoleApp1\bin\Debug\netcoreapp3.1\SIS.MvcFramework.dll
+C:\Users\alel_\source\WEB repos\SIS\Source\ConsoleApp1\bin\Debug\netcoreapp3.1\SIS.MvcFramework.pdb
+C:\Users\alel_\source\WEB repos\SIS\Source\ConsoleApp1\bin\Debug\netcoreapp3.1\SIS.HTTP.pdb
+C:\Users\alel_\source\WEB repos\SIS\Source\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.csprojAssemblyReference.cache
+C:\Users\alel_\source\WEB repos\SIS\Source\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.AssemblyInfoInputs.cache
+C:\Users\alel_\source\WEB repos\SIS\Source\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.AssemblyInfo.cs
+C:\Users\alel_\source\WEB repos\SIS\Source\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.csproj.CopyComplete
+C:\Users\alel_\source\WEB repos\SIS\Source\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.dll
+C:\Users\alel_\source\WEB repos\SIS\Source\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.pdb

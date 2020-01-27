@@ -1,0 +1,11 @@
+C:\Users\alel_\source\WEB repos\SIS\Source\SIS.MvcFramework\bin\Debug\netstandard2.0\SIS.MvcFramework.deps.json
+C:\Users\alel_\source\WEB repos\SIS\Source\SIS.MvcFramework\bin\Debug\netstandard2.0\SIS.MvcFramework.dll
+C:\Users\alel_\source\WEB repos\SIS\Source\SIS.MvcFramework\bin\Debug\netstandard2.0\SIS.MvcFramework.pdb
+C:\Users\alel_\source\WEB repos\SIS\Source\SIS.MvcFramework\bin\Debug\netstandard2.0\SIS.HTTP.dll
+C:\Users\alel_\source\WEB repos\SIS\Source\SIS.MvcFramework\bin\Debug\netstandard2.0\SIS.HTTP.pdb
+C:\Users\alel_\source\WEB repos\SIS\Source\SIS.MvcFramework\obj\Debug\netstandard2.0\SIS.MvcFramework.csprojAssemblyReference.cache
+C:\Users\alel_\source\WEB repos\SIS\Source\SIS.MvcFramework\obj\Debug\netstandard2.0\SIS.MvcFramework.AssemblyInfoInputs.cache
+C:\Users\alel_\source\WEB repos\SIS\Source\SIS.MvcFramework\obj\Debug\netstandard2.0\SIS.MvcFramework.AssemblyInfo.cs
+C:\Users\alel_\source\WEB repos\SIS\Source\SIS.MvcFramework\obj\Debug\netstandard2.0\SIS.MvcFramework.csproj.CopyComplete
+C:\Users\alel_\source\WEB repos\SIS\Source\SIS.MvcFramework\obj\Debug\netstandard2.0\SIS.MvcFramework.dll
+C:\Users\alel_\source\WEB repos\SIS\Source\SIS.MvcFramework\obj\Debug\netstandard2.0\SIS.MvcFramework.pdb

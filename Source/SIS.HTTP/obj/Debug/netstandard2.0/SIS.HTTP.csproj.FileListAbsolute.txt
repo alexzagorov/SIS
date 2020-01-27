@@ -1,0 +1,7 @@
+C:\Users\alel_\source\WEB repos\SIS\Source\SIS.HTTP\bin\Debug\netstandard2.0\SIS.HTTP.deps.json
+C:\Users\alel_\source\WEB repos\SIS\Source\SIS.HTTP\bin\Debug\netstandard2.0\SIS.HTTP.dll
+C:\Users\alel_\source\WEB repos\SIS\Source\SIS.HTTP\bin\Debug\netstandard2.0\SIS.HTTP.pdb
+C:\Users\alel_\source\WEB repos\SIS\Source\SIS.HTTP\obj\Debug\netstandard2.0\SIS.HTTP.AssemblyInfoInputs.cache
+C:\Users\alel_\source\WEB repos\SIS\Source\SIS.HTTP\obj\Debug\netstandard2.0\SIS.HTTP.AssemblyInfo.cs
+C:\Users\alel_\source\WEB repos\SIS\Source\SIS.HTTP\obj\Debug\netstandard2.0\SIS.HTTP.dll
+C:\Users\alel_\source\WEB repos\SIS\Source\SIS.HTTP\obj\Debug\netstandard2.0\SIS.HTTP.pdb
