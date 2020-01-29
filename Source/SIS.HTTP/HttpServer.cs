@@ -5,6 +5,8 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
+using static SIS.HTTP.HttpConstants;
+
 namespace SIS.HTTP
 {
     public class HttpServer : IHttpServer
@@ -25,18 +27,17 @@ namespace SIS.HTTP
             var incomingBytes = new byte[100000];
             await tcpStream.ReadAsync(incomingBytes, 0, incomingBytes.Length);
             string incomingRequestString = Encoding.UTF8.GetString(incomingBytes, 0, incomingBytes.Length);
+            var request = new HttpRequest(incomingRequestString);
 
             // Sending response
 
-            const string NewHTTPLine = "\r\n";
-
             string responseBody = "<h1>" + "" + "</h1>" + "<h1>" + DateTime.UtcNow + "</h1>";
-            string response = "HTTP/1.1 200 OK" + NewHTTPLine +
-                "Content-Type: text/html" + NewHTTPLine +
-                "Server: SoftUniTestServer/1.1" + NewHTTPLine +
-                "Set-Cookie: user=Alex; Max-Age=3600; HttpOnly" + NewHTTPLine +
-                "Content-Lenght: " + responseBody.Length + NewHTTPLine +
-                NewHTTPLine +
+            string response = "HTTP/1.1 200 OK" + NewLine +
+                "Content-Type: text/html" + NewLine +
+                "Server: SoftUniTestServer/1.1" + NewLine +
+                "Set-Cookie: user=Alex; Max-Age=3600; HttpOnly" + NewLine +
+                "Content-Lenght: " + responseBody.Length + NewLine +
+                NewLine +
                 responseBody;
 
             var responseBytes = Encoding.UTF8.GetBytes(response);
