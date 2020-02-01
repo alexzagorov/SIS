@@ -5,3 +5,4 @@ C:\Users\alel_\source\WEB repos\SIS\Source\SIS.HTTP\obj\Debug\netstandard2.0\SIS
 C:\Users\alel_\source\WEB repos\SIS\Source\SIS.HTTP\obj\Debug\netstandard2.0\SIS.HTTP.AssemblyInfo.cs
 C:\Users\alel_\source\WEB repos\SIS\Source\SIS.HTTP\obj\Debug\netstandard2.0\SIS.HTTP.dll
 C:\Users\alel_\source\WEB repos\SIS\Source\SIS.HTTP\obj\Debug\netstandard2.0\SIS.HTTP.pdb
+C:\Users\alel_\source\WEB repos\SIS\Source\SIS.HTTP\obj\Debug\netstandard2.0\SIS.HTTP.csprojAssemblyReference.cache

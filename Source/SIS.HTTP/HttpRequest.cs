@@ -43,6 +43,7 @@ namespace SIS.HTTP
 
             //Headers and Body
             bool isHeader = true;
+            var bodyBuilder = new StringBuilder();
             for (int i = 1; i < lines.Length; i++)
             {
                 var line = lines[i];
@@ -59,11 +60,12 @@ namespace SIS.HTTP
                     {
                         throw new HttpServerException($"Invalid header: {line}");
                     }
+
                     this.Headers.Add(new Header(headerParts[0], headerParts[1]));
                 }
                 else
                 {
-
+                    bodyBuilder.AppendLine(line);
                 }
             }
         }

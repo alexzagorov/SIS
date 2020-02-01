@@ -32,17 +32,14 @@ namespace SIS.HTTP
             // Sending response
 
             string responseBody = "<h1>" + "" + "</h1>" + "<h1>" + DateTime.UtcNow + "</h1>";
-            string response = "HTTP/1.1 200 OK" + NewLine +
-                "Content-Type: text/html" + NewLine +
-                "Server: SoftUniTestServer/1.1" + NewLine +
-                "Set-Cookie: user=Alex; Max-Age=3600; HttpOnly" + NewLine +
-                "Content-Lenght: " + responseBody.Length + NewLine +
-                NewLine +
-                responseBody;
+            var httpResponse = new HttpResponse(HttpResponseCode.OK, Encoding.UTF8.GetBytes(responseBody));
+            httpResponse.Headers.Add(new Header("Content-Type", "text/html"));
+            httpResponse.Headers.Add(new Header("Server", "SoftUniTestServer/1.1"));
 
-            var responseBytes = Encoding.UTF8.GetBytes(response);
+            var responseBytes = Encoding.UTF8.GetBytes(httpResponse.ToString());
 
             await tcpStream.WriteAsync(responseBytes, 0, responseBytes.Length);
+            await tcpStream.WriteAsync(httpResponse.Body, 0, httpResponse.Body.Length);
 
             Console.WriteLine(incomingRequestString);
             Console.WriteLine(new string('=', 50));
