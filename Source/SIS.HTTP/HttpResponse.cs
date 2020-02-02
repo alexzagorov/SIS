@@ -12,7 +12,7 @@ namespace SIS.HTTP
             this.Code = statusCode;
             this.Body = body;   
             this.Headers = new List<Header>();
-            this.Cookies = new List<Cookie>();
+            this.Cookies = new List<ResponseCookie>();
 
             if (body.Length > 0 && body != null)
             {
@@ -24,7 +24,7 @@ namespace SIS.HTTP
 
         public HttpResponseCode Code { get; set; }
 
-        public IList<Cookie> Cookies { get; set; }
+        public IList<ResponseCookie> Cookies { get; set; }
 
         public IList<Header> Headers { get; set; }
 
@@ -47,6 +47,11 @@ namespace SIS.HTTP
             foreach (var header in this.Headers)
             {
                 responseBuilder.Append(header.ToString() + HttpConstants.NewLine);
+            }
+
+            foreach (var cookie in this.Cookies)
+            {
+                responseBuilder.Append($"Set-Cookie: {cookie.ToString()}" + HttpConstants.NewLine);
             }
 
             responseBuilder.Append(HttpConstants.NewLine);

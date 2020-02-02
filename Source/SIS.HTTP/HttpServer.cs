@@ -31,19 +31,41 @@ namespace SIS.HTTP
 
             // Sending response
 
-            string responseBody = "<h1>" + "" + "</h1>" + "<h1>" + DateTime.UtcNow + "</h1>";
-            var httpResponse = new HttpResponse(HttpResponseCode.OK, Encoding.UTF8.GetBytes(responseBody));
-            httpResponse.Headers.Add(new Header("Content-Type", "text/html"));
-            httpResponse.Headers.Add(new Header("Server", "SoftUniTestServer/1.1"));
+            try
+            {
+                string responseBody = "<h1>" + "" + "</h1>" + "<h1>" + DateTime.UtcNow + "</h1>";
+                var httpResponse = new HttpResponse(HttpResponseCode.OK, Encoding.UTF8.GetBytes(responseBody));
 
-            var responseBytes = Encoding.UTF8.GetBytes(httpResponse.ToString());
+                httpResponse.Headers.Add(new Header("Content-Type", "text/html"));
+                httpResponse.Headers.Add(new Header("Server", "SoftUniTestServer/1.1"));
 
-            await tcpStream.WriteAsync(responseBytes, 0, responseBytes.Length);
-            await tcpStream.WriteAsync(httpResponse.Body, 0, httpResponse.Body.Length);
+                httpResponse.Cookies.Add(new ResponseCookie("username", "Kiro") { HttpOnly = true, MaxAge = 120 });
+                httpResponse.Cookies.Add(new ResponseCookie("sid", Guid.NewGuid().ToString()) { HttpOnly = true, MaxAge = 3600 });
 
-            Console.WriteLine(incomingRequestString);
-            Console.WriteLine(new string('=', 50));
 
+                var responseBytes = Encoding.UTF8.GetBytes(httpResponse.ToString());
+
+                await tcpStream.WriteAsync(responseBytes, 0, responseBytes.Length);
+                await tcpStream.WriteAsync(httpResponse.Body, 0, httpResponse.Body.Length);
+
+                Console.WriteLine(incomingRequestString);
+                Console.WriteLine(new string('=', 50));
+            }
+            catch (Exception ex)
+            {
+                var errorBody = Encoding.UTF8.GetBytes($@"<h1>Something went wrong</h1> 
+                                                          <h2>{ex.Message}</h2>");
+
+                var errorResponse = new HttpResponse(HttpResponseCode.InternalServerError, errorBody);
+
+                errorResponse.Headers.Add(new Header("Content-Type", "text/html"));
+                errorResponse.Headers.Add(new Header("Server", "SoftUniTestServer/1.1"));
+
+                var errorResponseBytes = Encoding.UTF8.GetBytes(errorResponse.ToString());
+
+                await tcpStream.WriteAsync(errorResponseBytes, 0, errorResponseBytes.Length);
+                await tcpStream.WriteAsync(errorResponse.Body, 0, errorResponse.Body.Length);
+            }
         }
 
         public async Task ResetAsync()

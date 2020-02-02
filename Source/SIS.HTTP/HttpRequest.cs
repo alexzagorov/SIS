@@ -9,6 +9,7 @@ namespace SIS.HTTP
         public HttpRequest(string httpStringRequest)
         {
             this.Headers = new List<Header>();
+            this.Cookies = new List<Cookie>();
 
             var lines = httpStringRequest.Split(new string[] { HttpConstants.NewLine }, StringSplitOptions.None);
 
@@ -61,7 +62,19 @@ namespace SIS.HTTP
                         throw new HttpServerException($"Invalid header: {line}");
                     }
 
-                    this.Headers.Add(new Header(headerParts[0], headerParts[1]));
+                    if (headerParts[0] == "Cookie")
+                    {
+                        var cookies = headerParts[1].Split(new string[] {"; "}, StringSplitOptions.None);
+                        foreach (var cookie in cookies)
+                        {
+                            var cookieParts = cookie.Split(new char[] { '=' }, 2, StringSplitOptions.None);
+                            this.Cookies.Add(new Cookie(cookieParts[0], cookieParts[1]));
+                        }
+                    }
+                    else
+                    {
+                        this.Headers.Add(new Header(headerParts[0], headerParts[1]));
+                    }
                 }
                 else
                 {
@@ -77,6 +90,8 @@ namespace SIS.HTTP
         public HttpVersionType Version { get; set; }
 
         public IList<Header> Headers { get; set; }
+
+        public IList<Cookie> Cookies { get; set; }
 
         public string Body { get; set; }
     }
