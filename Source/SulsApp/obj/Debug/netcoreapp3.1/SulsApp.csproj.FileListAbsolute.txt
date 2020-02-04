@@ -1,0 +1,16 @@
+C:\Users\alel_\source\WEB repos\SIS\Source\SulsApp\bin\Debug\netcoreapp3.1\SulsApp.exe
+C:\Users\alel_\source\WEB repos\SIS\Source\SulsApp\bin\Debug\netcoreapp3.1\SulsApp.deps.json
+C:\Users\alel_\source\WEB repos\SIS\Source\SulsApp\bin\Debug\netcoreapp3.1\SulsApp.runtimeconfig.json
+C:\Users\alel_\source\WEB repos\SIS\Source\SulsApp\bin\Debug\netcoreapp3.1\SulsApp.runtimeconfig.dev.json
+C:\Users\alel_\source\WEB repos\SIS\Source\SulsApp\bin\Debug\netcoreapp3.1\SulsApp.dll
+C:\Users\alel_\source\WEB repos\SIS\Source\SulsApp\bin\Debug\netcoreapp3.1\SulsApp.pdb
+C:\Users\alel_\source\WEB repos\SIS\Source\SulsApp\bin\Debug\netcoreapp3.1\SIS.HTTP.dll
+C:\Users\alel_\source\WEB repos\SIS\Source\SulsApp\bin\Debug\netcoreapp3.1\SIS.MvcFramework.dll
+C:\Users\alel_\source\WEB repos\SIS\Source\SulsApp\bin\Debug\netcoreapp3.1\SIS.MvcFramework.pdb
+C:\Users\alel_\source\WEB repos\SIS\Source\SulsApp\bin\Debug\netcoreapp3.1\SIS.HTTP.pdb
+C:\Users\alel_\source\WEB repos\SIS\Source\SulsApp\obj\Debug\netcoreapp3.1\SulsApp.csprojAssemblyReference.cache
+C:\Users\alel_\source\WEB repos\SIS\Source\SulsApp\obj\Debug\netcoreapp3.1\SulsApp.AssemblyInfoInputs.cache
+C:\Users\alel_\source\WEB repos\SIS\Source\SulsApp\obj\Debug\netcoreapp3.1\SulsApp.AssemblyInfo.cs
+C:\Users\alel_\source\WEB repos\SIS\Source\SulsApp\obj\Debug\netcoreapp3.1\SulsApp.csproj.CopyComplete
+C:\Users\alel_\source\WEB repos\SIS\Source\SulsApp\obj\Debug\netcoreapp3.1\SulsApp.dll
+C:\Users\alel_\source\WEB repos\SIS\Source\SulsApp\obj\Debug\netcoreapp3.1\SulsApp.pdb

@@ -30,10 +30,12 @@ namespace SIS.HTTP
             var incomingBytes = new byte[100000];
             await tcpStream.ReadAsync(incomingBytes, 0, incomingBytes.Length);
             string incomingRequestString = Encoding.UTF8.GetString(incomingBytes, 0, incomingBytes.Length);
-            var request = new HttpRequest(incomingRequestString);
 
             try
-            {               
+            {
+                var request = new HttpRequest(incomingRequestString);
+
+
                 var sessionCookie = request.Cookies.FirstOrDefault(x => x.Name == HttpConstants.SessionIdCookieName);
                 if (sessionCookie != null && this.sessions.ContainsKey(sessionCookie.Value))
                 {
@@ -80,7 +82,7 @@ namespace SIS.HTTP
             catch (Exception ex)
             {
                 var errorBody = Encoding.UTF8.GetBytes($@"<h1>Something went wrong</h1> 
-                                                          <h2>{ex.Message}</h2>");
+                                                          <h2>{ex}</h2>");
 
                 var errorResponse = new HttpResponse(HttpResponseCode.InternalServerError, errorBody);
 
