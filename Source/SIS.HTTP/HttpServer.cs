@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -12,13 +13,14 @@ namespace SIS.HTTP
     public class HttpServer : IHttpServer
     {
         private readonly TcpListener tcpListener;
+        private readonly IList<Route> routeTable;
 
-        public HttpServer(int port)
+        public HttpServer(int port, IList<Route> routeTable)
         {
 
            
             this.tcpListener = new TcpListener(IPAddress.Loopback, port);
-
+            this.routeTable = routeTable;
         }
 
         private async Task ProcessClientAsync(TcpClient tcpClient)
@@ -34,12 +36,20 @@ namespace SIS.HTTP
             try
             {
                 string responseBody = "<h1>" + "" + "</h1>" + "<h1>" + DateTime.UtcNow + "</h1>";
-                var httpResponse = new HttpResponse(HttpResponseCode.OK, Encoding.UTF8.GetBytes(responseBody));
 
-                httpResponse.Headers.Add(new Header("Content-Type", "text/html"));
+                HttpResponse httpResponse;              
+                var route = this.routeTable.Where(x => x.HttpMethod == request.Method && x.Path == request.Path).FirstOrDefault();
+                if (route == null)
+                {
+                    httpResponse = new HttpResponse(HttpResponseCode.NotFound, new byte[0]);
+                }
+                else
+                {
+                    httpResponse = route.Action(request);
+                }
+
+
                 httpResponse.Headers.Add(new Header("Server", "SoftUniTestServer/1.1"));
-
-                httpResponse.Cookies.Add(new ResponseCookie("username", "Kiro") { HttpOnly = true, MaxAge = 120 });
                 httpResponse.Cookies.Add(new ResponseCookie("sid", Guid.NewGuid().ToString()) { HttpOnly = true, MaxAge = 3600 });
 
 
