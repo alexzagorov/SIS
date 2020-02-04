@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using SIS.HTTP;
+using SIS.HTTP.Response;
 using SIS.MvcFramework;
 
 namespace ConsoleApp1
@@ -26,61 +28,29 @@ namespace ConsoleApp1
 
         private static HttpResponse FavIcon(HttpRequest request)
         {
-            throw new NotImplementedException();
-            //response.Headers.Add(new Header("Content-Type", "text/html"));
+            var iconBytes = File.ReadAllBytes("wwwroot/profilePic.ico");
 
+            return new FileResponse(iconBytes, "image/x-icon");
         }
 
         private static HttpResponse Contact(HttpRequest request)
         {
-            var responseBodyContent = "<h1>Contact</h1>";
-
-            var responseBodyBytes = Encoding.UTF8.GetBytes(responseBodyContent);
-
-            var response = new HttpResponse(HttpResponseCode.OK, responseBodyBytes);
-
-            response.Headers.Add(new Header("Content-Type", "text/html"));
-
-            return response;
+            return new HtmlResponse("<h1>Contact</h1>");
         }
 
         public static HttpResponse Index(HttpRequest request)
         {
-            var responseBodyContent = "<h1>Sweet Home</h1>";
-
-            var responseBodyBytes = Encoding.UTF8.GetBytes(responseBodyContent);
-
-            var response = new HttpResponse(HttpResponseCode.OK, responseBodyBytes);
-
-            response.Headers.Add(new Header("Content-Type", "text/html"));
-
-            return response;
+            return new HtmlResponse("<h1>Sweet Home</h1>");
         }
 
         public static HttpResponse Login(HttpRequest request)
         {
-            var responseBodyContent = "<h1>Login Page</h1>";
-
-            var responseBodyBytes = Encoding.UTF8.GetBytes(responseBodyContent);
-
-            var response = new HttpResponse(HttpResponseCode.OK, responseBodyBytes);
-
-            response.Headers.Add(new Header("Content-Type", "text/html"));
-
-            return response;
+            return new HtmlResponse("<h1>Login Page</h1>");
         }
 
         public static HttpResponse DoLogin(HttpRequest request)
         {
-            var responseBodyContent = "<h1>Login Page</h1>";
-
-            var responseBodyBytes = Encoding.UTF8.GetBytes(responseBodyContent);
-
-            var response = new HttpResponse(HttpResponseCode.OK, responseBodyBytes);
-
-            response.Headers.Add(new Header("Content-Type", "text/html"));
-
-            return response;
+            return new HtmlResponse("<h1>Login Page</h1>");
         }
     }
 }

@@ -14,3 +14,4 @@ C:\Users\alel_\source\WEB repos\SIS\Source\ConsoleApp1\obj\Debug\netcoreapp3.1\C
 C:\Users\alel_\source\WEB repos\SIS\Source\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.csproj.CopyComplete
 C:\Users\alel_\source\WEB repos\SIS\Source\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.dll
 C:\Users\alel_\source\WEB repos\SIS\Source\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.pdb
+C:\Users\alel_\source\WEB repos\SIS\Source\ConsoleApp1\bin\Debug\netcoreapp3.1\wwwroot\profilePic.ico

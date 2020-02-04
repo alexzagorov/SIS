@@ -7,17 +7,22 @@ namespace SIS.HTTP
     public class HttpResponse
     {
         public HttpResponse(HttpResponseCode statusCode, byte[] body)
+            :this()
         {
             this.Version = HttpVersionType.Http11;
             this.Code = statusCode;
             this.Body = body;   
-            this.Headers = new List<Header>();
-            this.Cookies = new List<ResponseCookie>();
-
+           
             if (body.Length > 0 && body != null)
             {
                 this.Headers.Add(new Header("Content-Length", body.Length.ToString()));
             }
+        }
+
+        internal HttpResponse()
+        {
+            this.Headers = new List<Header>();
+            this.Cookies = new List<ResponseCookie>();
         }
 
         public HttpVersionType Version { get; set; }

@@ -14,6 +14,7 @@ namespace SIS.HTTP
     {
         private readonly TcpListener tcpListener;
         private readonly IList<Route> routeTable;
+        private readonly IDictionary<string, IDictionary<string, string>> sessions = new Dictionary<string, IDictionary<string, string>>();
 
         public HttpServer(int port, IList<Route> routeTable)
         {
@@ -31,12 +32,15 @@ namespace SIS.HTTP
             string incomingRequestString = Encoding.UTF8.GetString(incomingBytes, 0, incomingBytes.Length);
             var request = new HttpRequest(incomingRequestString);
 
-            // Sending response
-
             try
-            {
-                string responseBody = "<h1>" + "" + "</h1>" + "<h1>" + DateTime.UtcNow + "</h1>";
+            {               
+                var sessionCookie = request.Cookies.FirstOrDefault(x => x.Name == HttpConstants.SessionIdCookieName);
+                if (sessionCookie != null && this.sessions.ContainsKey(sessionCookie.Value))
+                {
+                    request.SessionData = this.sessions[sessionCookie.Value];
+                }
 
+                // Sending response
                 HttpResponse httpResponse;              
                 var route = this.routeTable.Where(x => x.HttpMethod == request.Method && x.Path == request.Path).FirstOrDefault();
                 if (route == null)
@@ -50,8 +54,20 @@ namespace SIS.HTTP
 
 
                 httpResponse.Headers.Add(new Header("Server", "SoftUniTestServer/1.1"));
-                httpResponse.Cookies.Add(new ResponseCookie("sid", Guid.NewGuid().ToString()) { HttpOnly = true, MaxAge = 3600 });
 
+                if (sessionCookie == null || !this.sessions.ContainsKey(sessionCookie.Value))
+                {
+                    var newSessionId = Guid.NewGuid().ToString();
+                    this.sessions.Add(newSessionId, new Dictionary<string, string>());
+
+
+                    httpResponse.Cookies.Add(new ResponseCookie(HttpConstants.SessionIdCookieName, newSessionId) 
+                    { 
+                        HttpOnly = true, 
+                        MaxAge = 30*3600 
+                    });
+
+                }
 
                 var responseBytes = Encoding.UTF8.GetBytes(httpResponse.ToString());
 
