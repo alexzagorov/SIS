@@ -2,11 +2,12 @@
 
 namespace SulsApp
 {
-    class Program
+    public static class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            
+            var db = new ApplicationDbContext();
+            db.Database.EnsureCreated();
         }
     }
 }
