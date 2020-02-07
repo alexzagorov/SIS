@@ -10,6 +10,7 @@ namespace SulsApp.Models
         public User()
         {
             this.Id = Guid.NewGuid().ToString();
+            this.Submissions = new HashSet<Submission>();
         }
 
         [Key]
@@ -24,5 +25,7 @@ namespace SulsApp.Models
 
         [Required]
         public string Password { get; set; }
+
+        public virtual ICollection<Submission> Submissions { get; set; }
     }
 }

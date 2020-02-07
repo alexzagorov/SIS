@@ -27,10 +27,10 @@ namespace SulsApp.Models
 
         public string ProblemId { get; set; }
 
-        public Problem Problem { get; set; }
+        public virtual Problem Problem { get; set; }
 
         public string UserId { get; set; }
 
-        public User User { get; set; }
+        public virtual User User { get; set; }
     }
 }
